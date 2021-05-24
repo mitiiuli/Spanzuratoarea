@@ -9,7 +9,7 @@ var dif = 0;
 function wordw() {
     var randomWords = ["humor", "miniature", "amusing", "creepy", "fact", "risk", "verse", "land", "lumpy", "holiday", "glorious", "weigh", "brake", "pretty", "grin", "capricious", "bite-sized", "misty", "ignore", "certain", "sloppy", "dress", "true", "zonked", "observation", "action", "various", "want", "direful", "suck", "dress", "scarecrow", "judge", "madly", "quizzical", "consist", "fierce", "love", "arrest", "serve", "fit", "hug", "tan", "curve", "eatable", "tub", "race", "innocent", "open", "preach", "steady", "acoustics", "lock", "field", "arrange", "rifle", "learned", "toe", "flow", "competition", "ill-fated", "oatmeal", "match", "male", "measure", "loaf", "smile", "wrestle", "dull", "food", "locket", "bell", "beg", "strengthen", "responsible", "enchanting", "loutish", "switch", "idea", "nine", "squeamish", "pig", "bat", "dear", "trains", "owe", "frogs", "assorted", "lonely", "hurry", "natural", "sun", "snow", "obnoxious", "broken", "friend", "bright", "cake", "sour", "permit", "economic", "lovely", "quick", "van", "tempt", "apparel", "decay", "business", "adjustment", "blushing", "makeshift", "slippery", "load", "winter", "exist", "tongue", "country", "roll", "fast", "moor", "possess", "pat", "pass", "books", "impartial", "hospitable", "dust", "naughty", "tacky", "produce", "committee", "fuzzy", "judicious", "nebulous", "stick", "ear", "copy", "friendly", "press", "distinct", "vegetable", "upset", "venomous", "statement", "sulky", "spell", "square", "taste", "great", "thumb", "adjoining", "chilly", "test", "ancient", "green", "badge", "work", "repeat", "free", "elderly", "doctor", "difficult", "grubby", "approval", "turn", "vivacious", "thundering", "cherries", "rest", "plan", "crime", "sticks", "wealthy", "phone", "suspend", "gullible", "fence", "note", "wall", "interest", "coil", "jump", "enchanted", "funny", "racial", "greasy", "polish", "elbow", "smart", "bore", "crowd", "glistening", "oval", "eggs", "nauseating", "detailed", "veil", "coal"]
     var raNum = Math.floor(Math.random() * 68);
-    return randomWords[raNum]
+    return randomWords[raNum];
     }
 
 function wordStart() {
@@ -27,20 +27,16 @@ function winCountFunc() {
     var num = 0;
     var lettUsed = "";
     var count = word.length;
-
     while(count > 0) {
         if(lettUsed.includes(word[count - 1])) {
 
         }
-
         else{
             num += 1;
             lettUsed += word[count - 1];
         }
-
         count -= 1;
     }
-
     return num;
 }
 
@@ -48,39 +44,29 @@ function start() {
     dif = 1;
     word = wordw();
     winCount = winCountFunc();
-
     if(dif == 1) {
         guessBomb = word.length + 5;
     }
-
     console.log(word);
     document.getElementById('mainGame').style.display='block';
     document.getElementById('startButton').style.display='none';
-
     document.getElementById("question").innerHTML = "Enter your first guess";
-
     wordStart();
-
     document.getElementById('RRguess').style.display='block';
     document.getElementById("rightGuess").innerHTML = "word progress: " + wordGuess;
     document.getElementById("wrongGuess").innerHTML = "Wrong guesses: " + wrongGuess;
     document.getElementById("guessesLeft").innerHTML = "Guesses remaining: " + guessBomb;
-
     var x = document.getElementById("guess").maxLength;
-    //document.getElementById("demo").innerHTML = x;
 }
 
 function enterGuess() {
     var lett = document.getElementById("guess").value;
     document.getElementById("guess").value = "";
-
     if (lett.length === 1){
         var rightOnot = isRightOnot(lett);
         if (rightOnot == true) {
-
             NewCW(lett);
         }
-
         else {
             if(!wrongGuess.includes(lett)) {
                 console.log("hi");
@@ -89,19 +75,14 @@ function enterGuess() {
             guessBomb -= 1;
         }
     }
-
     else if (lett.length < 1) {
-
     }
-
     else {
         guessBomb -= 1;
     }
-
     if (guessBomb <= 0) {
         gameLose()
     }
-
     if (winCount <= 0) {
         gameWin()
     }
@@ -118,24 +99,19 @@ function isRightOnot(a) {
 function NewCW(letter) {
     var count = 0;
     winCount -= 1
-
     while (count <= word.length - 1) {
         if (letter === word[count]) {
             if(wordGuess[count] === letter) {
             }
             else {
             }
-
             wordGuess[count] = letter;
             count += 1;
         }
-
         else {
             count += 1;
         }
-
     }
-
 }
 
 function gameLose() {
@@ -143,7 +119,6 @@ function gameLose() {
     document.getElementById('RRguess').style.display='none';
     document.getElementById('youLose').style.display='block';
     document.getElementById("correctWordWas").innerHTML = "The correct word was " + word;
-    
 }
 
 function gameWin() {
