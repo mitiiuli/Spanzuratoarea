@@ -6,7 +6,7 @@ var winCount = 1;
 var guess = "";
 var dif = 0;
  
-function wordw() {
+function wordW() {
     var randomWords = ["humor", "miniature", "amusing", "creepy", "fact", "risk", "verse", "land", "lumpy", "holiday", "glorious", "weigh", "brake", "pretty", "grin", "capricious", "bite-sized", "misty", "ignore", "certain", "sloppy", "dress", "true", "zonked", "observation", "action", "various", "want", "direful", "suck", "dress", "scarecrow", "judge", "madly", "quizzical", "consist", "fierce", "love", "arrest", "serve", "fit", "hug", "tan", "curve", "eatable", "tub", "race", "innocent", "open", "preach", "steady", "acoustics", "lock", "field", "arrange", "rifle", "learned", "toe", "flow", "competition", "ill-fated", "oatmeal", "match", "male", "measure", "loaf", "smile", "wrestle", "dull", "food", "locket", "bell", "beg", "strengthen", "responsible", "enchanting", "loutish", "switch", "idea", "nine", "squeamish", "pig", "bat", "dear", "trains", "owe", "frogs", "assorted", "lonely", "hurry", "natural", "sun", "snow", "obnoxious", "broken", "friend", "bright", "cake", "sour", "permit", "economic", "lovely", "quick", "van", "tempt", "apparel", "decay", "business", "adjustment", "blushing", "makeshift", "slippery", "load", "winter", "exist", "tongue", "country", "roll", "fast", "moor", "possess", "pat", "pass", "books", "impartial", "hospitable", "dust", "naughty", "tacky", "produce", "committee", "fuzzy", "judicious", "nebulous", "stick", "ear", "copy", "friendly", "press", "distinct", "vegetable", "upset", "venomous", "statement", "sulky", "spell", "square", "taste", "great", "thumb", "adjoining", "chilly", "test", "ancient", "green", "badge", "work", "repeat", "free", "elderly", "doctor", "difficult", "grubby", "approval", "turn", "vivacious", "thundering", "cherries", "rest", "plan", "crime", "sticks", "wealthy", "phone", "suspend", "gullible", "fence", "note", "wall", "interest", "coil", "jump", "enchanted", "funny", "racial", "greasy", "polish", "elbow", "smart", "bore", "crowd", "glistening", "oval", "eggs", "nauseating", "detailed", "veil", "coal"]
     var raNum = Math.floor(Math.random() * 68);
     return randomWords[raNum];
@@ -14,7 +14,7 @@ function wordw() {
 
 function wordStart() {
     var wordLength = word.length;
-    var wordL_ = "";
+    var wordL = "";
     var count = wordLength;
 
     while(count > 0) {
@@ -42,7 +42,7 @@ function winCountFunc() {
 
 function start() {
     dif = 1;
-    word = wordw();
+    word = wordW();
     winCount = winCountFunc();
     if(dif == 1) {
         guessBomb = word.length + 5;
@@ -65,7 +65,7 @@ function enterGuess() {
     if (lett.length === 1){
         var rightOnot = isRightOnot(lett);
         if (rightOnot == true) {
-            NewCW(lett);
+            NewCw(lett);
         }
         else {
             if(!wrongGuess.includes(lett)) {
@@ -96,7 +96,7 @@ function isRightOnot(a) {
     return n;
 }
 
-function NewCW(letter) {
+function NewCw(letter) {
     var count = 0;
     winCount -= 1
     while (count <= word.length - 1) {
