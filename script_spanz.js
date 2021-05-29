@@ -62,7 +62,7 @@ function enterGuess() {
     if (lett.length === 1) {
         var rightOnot = isRightOnot(lett);
         if (rightOnot == true) {
-            NewCw(lett);
+            newCountWord(lett);
             } else {
               if (!wrongGuess.includes(lett)) {
                 console.log("hi");
@@ -89,9 +89,9 @@ function isRightOnot(a) {
     return n;
 }
 
-function NewCw(letter) {
+function newCountWord(letter) {
     var count = 0;
-    winCount -= 1
+    winCount--;
     while (count <= word.length - 1) {
         if (letter === word[count]) {
             wordGuess[count] = letter;
